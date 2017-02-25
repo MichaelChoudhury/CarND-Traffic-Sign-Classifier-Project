@@ -1,5 +1,4 @@
-# Traffic Sign Classifier 
-[![Udacity - Self-Driving Car NanoDegree](https://s3.amazonaws.com/udacity-sdc/github/shield-carnd.svg)](http://www.udacity.com/drive)
+# Traffic Sign Classifier [![Udacity - Self-Driving Car NanoDegree](https://s3.amazonaws.com/udacity-sdc/github/shield-carnd.svg)](http://www.udacity.com/drive)
 
 This is my solution of Project 2 of the Self Driving Car Nanodegree from Udacity.  
 
@@ -28,8 +27,6 @@ This is my solution of Project 2 of the Self Driving Car Nanodegree from Udacity
 * Source code: [Traffic_Sign_Classifier.ipynb](https://github.com/frankkanis/CarND-Traffic-Sign-Classifier-Project/blob/master/Traffic_Sign_Classifier.ipynb)
 * Pickle files: [traffic-signs-data.zip](https://d17h27t6h515a5.cloudfront.net/topher/2017/February/5898cd6f_traffic-signs-data/traffic-signs-data.zip)
 * Original data set: [German Traffic Sign Data Set](http://benchmark.ini.rub.de/?section=gtsrb&subsection=dataset)
-
-
 * Project specification: [Udacity Rubrics](https://review.udacity.com/#!/rubrics/481/view)
 * Udacity repository: [CarND-Traffic-Sign-Classifier-Project](https://github.com/udacity/CarND-Traffic-Sign-Classifier-Project)
 * [Udacity Self Driving Nanodegree](http://www.udacity.com/drive)
