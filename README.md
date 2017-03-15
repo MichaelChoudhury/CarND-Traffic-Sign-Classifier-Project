@@ -26,6 +26,7 @@ This is my solution of Project 2 of the Self Driving Car Nanodegree from Udacity
 ### Exploratory visualization on the data set
 
 The bar chart shows the data distribution of the training data. Each bar represents one class (traffic sign) and how many samples are in the class.
+
 ![histogram](./images/histogram.png "histogram")
 
 The next image show some traffic sign images from the training data.
