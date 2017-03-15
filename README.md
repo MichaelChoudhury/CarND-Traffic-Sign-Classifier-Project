@@ -12,7 +12,7 @@ This is my solution of Project 2 of the Self Driving Car Nanodegree from Udacity
 
 ### Jupyter Notebook
 
-* Source Code: [Traffic_Sign_Classifier.ipynb](https://github.com/frankkanis/CarND-Traffic-Sign-Classifier-Project/blob/master/Traffic_Sign_Classifier.ipynb)
+* Source Code: [Traffic_Sign_Classifier.ipynb](./Traffic_Sign_Classifier.ipynb)
 
 ### Basic summary of the data set
 
@@ -25,10 +25,17 @@ This is my solution of Project 2 of the Self Driving Car Nanodegree from Udacity
 
 ### Exploratory visualization on the data set
 
+The bar chart shows the data distribution of the training data. Each bar represents one class (traffic sign) and how many samples are in the class.
 ![histogram](./images/histogram.png "histogram")
 
+The next image show some traffic sign images from the training data.
+![original training images](./images/training_data_raw.jpg "original training images")
+
+### Design and Test a Model Architecture
+
+
 ### Resources
-* Source code: [Traffic_Sign_Classifier.ipynb](https://github.com/frankkanis/CarND-Traffic-Sign-Classifier-Project/blob/master/Traffic_Sign_Classifier.ipynb)
+* Source code: [Traffic_Sign_Classifier.ipynb](./Traffic_Sign_Classifier.ipynb)
 * Pickle files: [traffic-signs-data.zip](https://d17h27t6h515a5.cloudfront.net/topher/2017/February/5898cd6f_traffic-signs-data/traffic-signs-data.zip)
 * Original data set: [German Traffic Sign Data Set](http://benchmark.ini.rub.de/?section=gtsrb&subsection=dataset)
 * Project specification: [Udacity Rubrics](https://review.udacity.com/#!/rubrics/481/view)
