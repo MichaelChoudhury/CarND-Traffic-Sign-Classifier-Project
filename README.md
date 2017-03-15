@@ -25,7 +25,7 @@ This is my solution of Project 2 of the Self Driving Car Nanodegree from Udacity
 
 ### Exploratory visualization on the data set
 
-![histogram](./images/histogram.jpg) "histogram"
+![histogram](./images/histogram.png "histogram")
 
 ### Resources
 * Source code: [Traffic_Sign_Classifier.ipynb](https://github.com/frankkanis/CarND-Traffic-Sign-Classifier-Project/blob/master/Traffic_Sign_Classifier.ipynb)
