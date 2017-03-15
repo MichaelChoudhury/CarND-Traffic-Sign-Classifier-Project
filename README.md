@@ -16,6 +16,7 @@ This is my solution of Project 2 of the Self Driving Car Nanodegree from Udacity
 
 ### Basic summary of the data set
 
+* Download dataset: [traffic-signs-data.zip](https://d17h27t6h515a5.cloudfront.net/topher/2017/February/5898cd6f_traffic-signs-data/traffic-signs-data.zip)
 * The size of training set is 34799
 * The size of validation set is 4410
 * The size of test set is 12630
@@ -23,6 +24,9 @@ This is my solution of Project 2 of the Self Driving Car Nanodegree from Udacity
 * The number of unique classes/labels in the data set is 43
 
 ### Exploratory visualization on the data set
+
+![histogram](./images/histogram.jpg) "histogram"
+
 ### Resources
 * Source code: [Traffic_Sign_Classifier.ipynb](https://github.com/frankkanis/CarND-Traffic-Sign-Classifier-Project/blob/master/Traffic_Sign_Classifier.ipynb)
 * Pickle files: [traffic-signs-data.zip](https://d17h27t6h515a5.cloudfront.net/topher/2017/February/5898cd6f_traffic-signs-data/traffic-signs-data.zip)
