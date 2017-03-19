@@ -25,22 +25,23 @@ This is my solution of Project 2 of Udacity's Self Driving Car Nanodegree.
 
 ### Exploratory visualization on the data set
 
-The bar chart shows the data distribution of the training data. Each bar represents one class (traffic sign) and how many samples are in the class.
+The bar chart shows the data distribution of the training data. Each bar represents one class (traffic sign) and how many samples are in the class. The mapping of traffic sign names to class id can be found here: [signnames.csv](./signnames.csv)
 
 ![histogram](./images/histogram.png "histogram")
 
-The next image show some traffic sign images from the training data.
+Here are some traffic signs from the training data set. More can be found in the jupyter notebook.
+
 ![original training images](./images/training_data_raw.jpg "original training images")
 
 ### Design and Test a Model Architecture
-
-LeNet-5 implementation
 
 #### Preprocessing
 
 |original image|preprocessed image
 |----|----|
 |![original image](./images/original_image.png "original image")|![preprocessed  image](./images/preprocessed_image.png "preprocessed image")|
+
+#### Model Architecture
  
  My final model consisted of the following layers:
 
@@ -53,14 +54,29 @@ LeNet-5 implementation
 | Convolution 3x3 		| 1x1 stride, valid padding, RELU activation    |5x5x96|3x3x172|
 | Max pooling			| 1x1 stride, 2x2 window        				|3x3x172|2x2x172|
 | Flatten				| 3 dimensions -> 1 dimension					|2x2x172| 688|
-| Fully Connected       | connect every neuron from layer above			|688|84|
-| Fully Connected       | output = number of traffic signs in data set	|84|**43**|
+| Fully Connected | connect every neuron from layer above			|688|84|
+| Fully Connected | output = number of traffic signs in data set	|84|**43**|
 
-EPOCHS = 35
-BATCH_SIZE = 128
-EPOCH 35 ... Validation Accuracy = 0.971
-Test Accuracy = 0.954
-Optimizer: AdamOptimizer
+#### Model Training
+
+I trained the model on my local machine with a GPU (NVIDA GeForce GT 750 M). It is not a high-end gpu, but it has a compute capability of 3.0, which is the absolute minimum requirement of tensorflows gpu support. Compared to my cpu, the training was about 3.3 times faster.
+
+**NOTE:** If you are on windows and get an CUDA_ERROR_ILLEGAL_ADDRESS in gpu mode, it is probably an issue with ```tf.one_hot()``` Have a look: https://github.com/tensorflow/tensorflow/issues/6509 That is the reason why I use the function ```one_hot_workaround``` in my code.
+
+Here are my final training parameters:
+* EPOCHS = 35
+* BATCH_SIZE = 128
+* SIGMA = 0.1
+* OPIMIZER: AdamOptimizer (learning rate = 0.001)
+
+My results after training the model:
+* Validation Accuracy = **97.1%**
+* Test Accuracy = **95.4%**
+
+#### Solution Approach
+
+My first implementation was LeNet-5 shown in the udacity classroom. I modified it to work with the input shape of 32x32x3. It was a good starting point and I get a validation accuracy of about 90%, but the test accuracy was much lower (about 81%). 
+
 
 ### Test on new images
 
@@ -81,6 +97,7 @@ Optimizer: AdamOptimizer
 * Source code: [Traffic_Sign_Classifier.ipynb](./Traffic_Sign_Classifier.ipynb)
 * Pickle files: [traffic-signs-data.zip](https://d17h27t6h515a5.cloudfront.net/topher/2017/February/5898cd6f_traffic-signs-data/traffic-signs-data.zip)
 * Original data set: [German Traffic Sign Data Set](http://benchmark.ini.rub.de/?section=gtsrb&subsection=dataset)
+* LeNet-5: [Gradient-Based Learning Applied to Document Recognition](http://yann.lecun.com/exdb/publis/pdf/lecun-01a.pdf)
 * Project specification: [Udacity Rubrics](https://review.udacity.com/#!/rubrics/481/view)
 * Udacity repository: [CarND-Traffic-Sign-Classifier-Project](https://github.com/udacity/CarND-Traffic-Sign-Classifier-Project)
 * [Udacity Self Driving Nanodegree](http://www.udacity.com/drive)
