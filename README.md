@@ -37,11 +37,19 @@ Here are some traffic signs from the training data set. More can be found in the
 
 #### Preprocessing
 
+The images of the training dataset have 3 color channels. I reduced the channels to only one. I converted the images to YCrCb color space and use the y-channel. Here you can see how it looks like:
+
 |original image|preprocessed image
 |----|----|
 |![original image](./images/original_image.png "original image")|![preprocessed  image](./images/preprocessed_image.png "preprocessed image")|
 
+The main reason why I reduced to one channel is because of reducing the amount of input data, training the model is significantly faster. The color of traffic signs should not be importent for classification. They are designed that even color blind people can identify them.
+
+I normalized the data before training for mathematical reasons. Normalized data can make the training faster and reduce the chance of getting stuck in local optima.
+
 #### Model Architecture
+ 
+ I use a convolutional neuronal network to classify the traffic signs. The input of the network is an 32x32x1 image and the output is the probabilty of each of the 43 possible traffic signs.
  
  My final model consisted of the following layers:
 
@@ -75,23 +83,49 @@ My results after training the model:
 
 #### Solution Approach
 
-My first implementation was LeNet-5 shown in the udacity classroom. I modified it to work with the input shape of 32x32x3. It was a good starting point and I get a validation accuracy of about 90%, but the test accuracy was much lower (about 81%). 
-
+My first implementation was LeNet-5 shown in the udacity classroom. I modified it to work with the input shape of 32x32x3. It was a good starting point and I get a validation accuracy of about 90%, but the test accuracy was much lower (about 81%). So I modified the network and added more convolutional layer, did some preprocessing and looked which changes give better results. You can see my final model architecture above. I experiment with dropout as well, but I couldn't see any improvements. Training for more than 35 epochs do not increase the validation accuracy. I trained the network for 50 and more epochs, but I get a slightly decreasing accuracy. So I decided to stop training after 35 epochs.
 
 ### Test on new images
 
+#### Acquiring New Images
+
+I used google street view to get new images for my testing set. Here are 7 examples I collected. 6 traffic signs that are in the dataset and, just for fun, one that is not.
 
 ![new images](./images/new_images.png "new images")
-![priority road softmax k-top](./images/priority_road_k_top.png "priority road softmax k-top")
-![speed limit softmax k-top](./images/speed_limit_k_top.png "speed limit softmax k-top")
+
+The signs "speed limit 30", "yield, stop", "no entry" and "keep right" should be easy to detect, because they are clearly visible and there are lots of examples in the training set. The "priority road" sign should be a little bit tricky, because there are only parts of the sign visible. The last sign is just to see what the model predict.
+
+#### Performance on New Images
 
 | Image			        |     Prediction		| 
 |:---------------------:|:---------------------:| 
 | Speed limit (30km/h)  | Speed limit (30km/h)  | 
 | Priority road   		| Children crossing 	|
-| Yield					| Yield					|
-| Stop	      			| Stop					|
-| No entry				| No entry    			|
+| Yield			| Yield					|
+| Stop		| Stop					|
+| No entry		| No entry  |
+| Keep right | Keep right |
+| *Unknown* | *Stop* |
+
+5 of 6 correct = **83.3 %** (*5 of 7 correct = 71,42 %*)
+
+If you look at the 6 new images, 5 of them are correct. That's an accuracy of 83.3 %, which is much lower than the accuracy of the test set (95.4 %), but with such a small set of images you can not calculate a good accuracy. You need more images.
+
+#### Softmax Probabilities
+
+Prediction correct:
+
+Everything good here, very confident with its prediction.
+
+![speed limit softmax k-top](./images/speed_limit_k_top.png "speed limit softmax k-top")
+
+Prediction false:
+
+The tricky sign, correct solution is on the third place with less than 3 %
+
+![priority road softmax k-top](./images/priority_road_k_top.png "priority road softmax k-top")
+
+
 
 ### Resources
 * Source code: [Traffic_Sign_Classifier.ipynb](./Traffic_Sign_Classifier.ipynb)
