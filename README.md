@@ -1,6 +1,6 @@
 # Traffic Sign Classifier [![Udacity - Self-Driving Car NanoDegree](https://s3.amazonaws.com/udacity-sdc/github/shield-carnd.svg)](http://www.udacity.com/drive)
 
-This is my solution of Project 2 of the Self Driving Car Nanodegree from Udacity.  
+This is my solution of Project 2 of Udacity's Self Driving Car Nanodegree.  
 
 ### Goals & steps of the project
 * Load the data set (see below for links to the project data set)
@@ -34,6 +34,48 @@ The next image show some traffic sign images from the training data.
 
 ### Design and Test a Model Architecture
 
+LeNet-5 implementation
+
+#### Preprocessing
+
+|original image|preprocessed image
+|----|----|
+|![original image](./images/original_image.png "original image")|![preprocessed  image](./images/preprocessed_image.png "preprocessed image")|
+ 
+ My final model consisted of the following layers:
+
+| Layer         		|     Description	        					| Input |Output| 
+|:---------------------:|:---------------------------------------------:| :----:|:-----:|
+| Convolution 5x5     	| 1x1 stride, valid padding, RELU activation 	|**32x32x1**|28x28x48|
+| Max pooling			| 2x2 stride, 2x2 window						|28x28x48|14x14x48|
+| Convolution 5x5 	    | 1x1 stride, valid padding, RELU activation 	|14x14x48|10x10x96|
+| Max pooling			| 2x2 stride, 2x2 window	   					|10x10x96|5x5x96|
+| Convolution 3x3 		| 1x1 stride, valid padding, RELU activation    |5x5x96|3x3x172|
+| Max pooling			| 1x1 stride, 2x2 window        				|3x3x172|2x2x172|
+| Flatten				| 3 dimensions -> 1 dimension					|2x2x172| 688|
+| Fully Connected       | connect every neuron from layer above			|688|84|
+| Fully Connected       | output = number of traffic signs in data set	|84|**43**|
+
+EPOCHS = 35
+BATCH_SIZE = 128
+EPOCH 35 ... Validation Accuracy = 0.971
+Test Accuracy = 0.954
+Optimizer: AdamOptimizer
+
+### Test on new images
+
+
+![new images](./images/new_images.png "new images")
+![priority road softmax k-top](./images/priority_road_k_top.png "priority road softmax k-top")
+![speed limit softmax k-top](./images/speed_limit_k_top.png "speed limit softmax k-top")
+
+| Image			        |     Prediction		| 
+|:---------------------:|:---------------------:| 
+| Speed limit (30km/h)  | Speed limit (30km/h)  | 
+| Priority road   		| Children crossing 	|
+| Yield					| Yield					|
+| Stop	      			| Stop					|
+| No entry				| No entry    			|
 
 ### Resources
 * Source code: [Traffic_Sign_Classifier.ipynb](./Traffic_Sign_Classifier.ipynb)
