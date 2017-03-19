@@ -113,19 +113,25 @@ If you look at the 6 new images, 5 of them are correct. That's an accuracy of 83
 
 #### Softmax Probabilities
 
-Prediction correct:
+**Prediction correct**
 
 Everything good here, very confident with its prediction.
 
 ![speed limit softmax k-top](./images/speed_limit_k_top.png "speed limit softmax k-top")
 
-Prediction false:
+**Prediction false**
 
-The tricky sign, correct solution is on the third place with less than 3 %
+The priority road sign, correct solution is on the third place with less than 5 %
 
 ![priority road softmax k-top](./images/priority_road_k_top.png "priority road softmax k-top")
 
+**Prediction unknown**
 
+What happens when the sign is not in training set? Yes, it picks a sign that look very similar, or? 
+
+![unknown softmax k-top](./images/unknown_k_top.png "unkown softmax k-top")
+
+This could be dangerous. As you see, it is realy confident with its prediction. In this case the car will stop, but what happens when it predicts a priority road sign instead? So this model should be improved and trained with all the other traffic signs that exist in the world, before you can use it in a real car ;)
 
 ### Resources
 * Source code: [Traffic_Sign_Classifier.ipynb](./Traffic_Sign_Classifier.ipynb)
